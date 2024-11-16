@@ -77,6 +77,3 @@ describe("A Point", () => {
 	  });
    });
 });
-   equals(pt: Point): boolean {
-	  return this._pt._x === pt.x && this._pt._y === pt.y;
-   }
