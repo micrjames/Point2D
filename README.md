@@ -51,6 +51,11 @@ Similarly, we can get the values of the *Point*.
 ```
     pt.pt;
 ```
+And, we can set the *Point* to have the values of another *Point*. The effects of this method are essentially equivalent to the *move* method described below.
+```
+    const otherPt = new Point(otherX, otherY);
+    pt.pt = otherPt;
+```
 We can also check whether two Points are equal. If we already have another Point, *otherPt*,
 ```
     pt.equals(otherPt);
