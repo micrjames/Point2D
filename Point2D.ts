@@ -4,10 +4,8 @@ import { StringBuilder } from "./StringBuilder/StringBuilder";
 export class Point {
    protected _pt: pt;
 
-   constructor();
-   constructor(x: number, y: number)
    constructor(x?: number, y?: number) {
-      this._pt = x && y ? { _x: x, _y: y } : { _x: 0, _y: 0 };
+      this._pt = x || y ? { _x: x, _y: y } : { _x: 0, _y: 0 };
    }
    get pt(): Point {
 	  return new Point(this._pt._x, this._pt._y);
@@ -30,10 +28,11 @@ export class Point {
 	  this._pt._y = y;
    }
    equals(pt: Point): boolean {
-	  return this._pt._x === pt.x && this._pt._y === pt.y;
+	  return this.x == pt.x && this.y == pt.y;
    }
    move(x: number, y: number) {
-	  this.pt = new Point(x, y);
+	  this._pt._x = x;
+	  this._pt._y = y;
    }
    translate(dx: number, dy: number) {
 	  this._pt._x += dx;
