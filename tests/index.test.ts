@@ -2,17 +2,38 @@ import { Point } from "../Point2D";
 
 describe("A Point", () => {
    let pt: Point;
+   let zero: number;
+   let zeroPt: Point;
    beforeAll(() => {
+	  zero = 0;
+	  zeroPt = new Point(0, 0);
    });
    describe("Without Initialization", () => {
+	  let point: Point;
+	  let pointStr: string;
 	  beforeAll(() => {
 		 pt = new Point();
+		 point = pt.pt;
+		 pointStr = pt.toString();
 	  });
-	  test.todo("Should exist.");
-	  test.todo("Should have an 'x' value of 0.");
-	  test.todo("Should have a 'y' value of 0.");
-	  test.todo("Should be (0, 0).");
-	  test.todo("Should be '(0, 0)'.");
+	  test("Should exist.", () => {
+		 expect(pt).toBeDefined();
+	  });
+	  test("Should have an 'x' value of 0.", () => {
+		 const x = pt.x;
+		 expect(x).toBe(zero);
+	  });
+	  test("Should have a 'y' value of 0.", () => {
+		 const y = pt.y;
+		 expect(y).toBe(zero);
+	  });
+	  test("Should be (0, 0).", () => {
+		 expect(point).toEqual(zeroPt);
+	  });
+	  test("Should be '(0, 0)'.", () => {
+		 const zeroPtStr = zeroPt.toString();
+		 expect(pointStr).toBe(zeroPtStr);
+	  });
    });
    describe("With Initialization", () => {
 	  beforeAll(() => {
